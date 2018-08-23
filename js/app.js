@@ -9,6 +9,8 @@ var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.h = 101;
+    this.w = 171;
 };
 // characters
 const char = {
@@ -26,6 +28,8 @@ var Player = function(x, y, speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.h = 101;
+    this.w = 171;
 }
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -33,6 +37,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (this.x + 80 > player.x && this.x < player.x + 80 && this.y == player.y) {
+    // collision detected!
+      console.log("collision detected");
+    } else if (this.x > 500) {
+      this.x == 0; //reset position
+    }
     this.x = this.x + this.speed * dt;
 };
 
@@ -59,7 +69,7 @@ Player.prototype.handleInput = function() {
     // up
     case 38:
       this.y -= 85;
-      console.log(this.y);
+      console.log(`x: ${this.x}, y: ${this.y}`);
       break;
     // down
     case 40:
@@ -78,8 +88,10 @@ Player.prototype.handleInput = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var enemy1 = new Enemy(100, 100, 50);
-const allEnemies = ["enemy1"];
+var enemy1 = new Enemy(0, 220, 70);
+var enemy2 = new Enemy(0, 140, 60);
+var enemy3 = new Enemy(0, 60, 50);
+const allEnemies = [enemy1, enemy2, enemy3];
 let player = new Player(200, 400, 50);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
