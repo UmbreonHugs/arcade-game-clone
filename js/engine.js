@@ -44,9 +44,10 @@ var Engine = (function(global) {
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-        update(dt);
-        render();
-
+        if (gameActive == true) {
+          update(dt);
+          render();
+        }
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
          */
@@ -137,9 +138,7 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-      if (gameActive == true) {
         renderEntities();
-      }
     }
 
     /* This function is called by the render function and is called on each game
