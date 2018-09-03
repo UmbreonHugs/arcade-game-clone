@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="modal" id="mainmenu" tabindex="-1" role="dialog" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-main-menu">
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-success btn-lg" onClick="chooseDifficulty('1')">Easy</button>
+            <button type="button" class="btn btn-primary btn-lg" onClick="chooseDifficulty('2')">Medium</button>
+            <button type="button" class="btn btn-warning btn-lg" onClick="chooseDifficulty('3')">Hard</button>
+            <button type="button" class="btn btn-danger btn-lg" onClick="chooseDifficulty('4')">Expert</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Start Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+    <div class="col-4">
+      <span class="seconds-counter">0s</span>
+    </div>
+    <div class="col-4">
+      <ul class="stars">
+      </ul>
+    </div>
+    <div class="col-4">
+       <span class="moves"></span> Moves
+    </div>
+  </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#mainmenu').modal('show');
+      });
+    </script>
 </body>
 </html>
