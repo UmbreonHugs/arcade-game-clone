@@ -1,3 +1,13 @@
+// easy = 1
+// medium = 2
+// hard = 3
+// expert = 4
+let difficulty;
+let death = 0;
+let time = 0;
+let score = 0;
+let gameActive = false;
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -12,19 +22,12 @@ var Enemy = function(x, y, speed) {
     this.h = 101;
     this.w = 171;
 };
-// easy = 1
-// medium = 2
-// hard = 3
-// expert = 4
-let difficulty;
-let death = 0;
-let time = 0;
-let score = 0;
-let gameActive = false;
 function chooseDifficulty(diff) {
   difficulty = diff;
 }
-
+function startGame() {
+  gameActive = true;
+}
 var Player = function(x, y, speed) {
     // Load sprite
     this.sprite = "images/char-boy.png";
@@ -63,7 +66,9 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+  if (gameActive = true) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
 };
 
 // Now write your own player class
@@ -116,7 +121,7 @@ Player.prototype.handleInput = function() {
       var enemy3 = new Enemy(0, 60, 180);
       var enemy4 = new Enemy(100, 60, 170);
       var enemy5 = new Enemy(200, 60, 280);
-      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5)
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
       break;
     case 2:
       var enemy1 = new Enemy(0, 220, 320);
@@ -125,7 +130,7 @@ Player.prototype.handleInput = function() {
       var enemy4 = new Enemy(100, 60, 430);
       var enemy5 = new Enemy(200, 220, 230);
       var enemy6 = new Enemy(300, 60, 250);
-      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6)
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6);
       break;
     case 3:
       var enemy1 = new Enemy(0, 220, 330);
@@ -135,7 +140,7 @@ Player.prototype.handleInput = function() {
       var enemy5 = new Enemy(200, 220, 230);
       var enemy6 = new Enemy(300, 60, 450);
       var enemy7 = new Enemy(200, 60, 480);
-      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7)
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7);
       break;
     case 4:
       var enemy1 = new Enemy(0, 220, 390);
@@ -150,7 +155,7 @@ Player.prototype.handleInput = function() {
       var enemy10 = new Enemy(300, 220, 460);
       var enemy11 = new Enemy(300, 145, 450);
       var enemy12 = new Enemy(300, 60, 410);
-      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11, enemy12)
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11, enemy12);
       break;
     }
   // expert level
