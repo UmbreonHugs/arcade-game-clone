@@ -16,15 +16,13 @@ var Enemy = function(x, y, speed) {
 // medium = 2
 // hard = 3
 // expert = 4
-let difficulty = 0;
+let difficulty;
 let death = 0;
-// characters
-const char = {
-    boy: "images/char-boy.png",
-    catgirl: "images/char-cat-girl.png",
-    horngirl: "images/char-horn-girl.png",
-    princessgirl: 'images/char-princess-girl.png',
-    pinkgirl: 'images/char-pink-girl.png'
+let time = 0;
+let score = 0;
+let gameActive = false;
+function chooseDifficulty(diff) {
+  difficulty = diff;
 }
 
 var Player = function(x, y, speed) {
@@ -58,9 +56,6 @@ Enemy.prototype.update = function(dt) {
       player.y = 400;
       death += 1;
     }
-    if (player.y < 0) {
-          this.speed += 80 + Math.floor(Math.random() * 520);
-    }
     /* else if (this.x > 500) {
       this.x = 0; //reset position
     } */
@@ -76,11 +71,9 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 Player.prototype.update = function() {
   if (this.y < 0) {
-    // return to position, add score, increase speed
+    // Winner winner, chicken dinner.... *dabs*
     this.y = 400;
   }
-  // keep the player in bounderies
-
 };
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -112,16 +105,56 @@ Player.prototype.handleInput = function() {
 // Place the player object in a variable called player
 
 
-// expert level
-var enemy1 = new Enemy(0, 220, 320);
-var enemy2 = new Enemy(0, 140, 90);
-var enemy3 = new Enemy(0, 60, 180);
-var enemy4 = new Enemy(100, 60, 140);
-var enemy5 = new Enemy(200, 220, 230);
-var enemy6 = new Enemy(300, 60, 250);
-var enemy7 = new Enemy(200, 60, 280);
-const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7];
-let player = new Player(200, 400, 50);
+  // Load the array
+  const allEnemies = [];
+  let player = new Player(200, 400, 50);
+  // push enemies, baised on difficulty
+  switch (difficulty){
+    case 1:
+      var enemy1 = new Enemy(0, 220, 320);
+      var enemy2 = new Enemy(0, 140, 210);
+      var enemy3 = new Enemy(0, 60, 180);
+      var enemy4 = new Enemy(100, 60, 170);
+      var enemy5 = new Enemy(200, 60, 280);
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5)
+      break;
+    case 2:
+      var enemy1 = new Enemy(0, 220, 320);
+      var enemy2 = new Enemy(0, 140, 210);
+      var enemy3 = new Enemy(0, 60, 230);
+      var enemy4 = new Enemy(100, 60, 430);
+      var enemy5 = new Enemy(200, 220, 230);
+      var enemy6 = new Enemy(300, 60, 250);
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6)
+      break;
+    case 3:
+      var enemy1 = new Enemy(0, 220, 330);
+      var enemy2 = new Enemy(0, 140, 210);
+      var enemy3 = new Enemy(0, 60, 440);
+      var enemy4 = new Enemy(100, 60, 320);
+      var enemy5 = new Enemy(200, 220, 230);
+      var enemy6 = new Enemy(300, 60, 450);
+      var enemy7 = new Enemy(200, 60, 480);
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7)
+      break;
+    case 4:
+      var enemy1 = new Enemy(0, 220, 390);
+      var enemy2 = new Enemy(0, 145, 490);
+      var enemy3 = new Enemy(0, 60, 230);
+      var enemy4 = new Enemy(100, 220, 450);
+      var enemy5 = new Enemy(100, 145, 430);
+      var enemy6 = new Enemy(100, 60, 290);
+      var enemy7 = new Enemy(200, 220, 310);
+      var enemy8 = new Enemy(200, 145, 410);
+      var enemy9 = new Enemy(200, 60, 420);
+      var enemy10 = new Enemy(300, 220, 460);
+      var enemy11 = new Enemy(300, 145, 450);
+      var enemy12 = new Enemy(300, 60, 410);
+      allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11, enemy12)
+      break;
+    }
+  // expert level
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
