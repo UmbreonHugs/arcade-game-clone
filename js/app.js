@@ -7,6 +7,7 @@ let difficultyText;
 let lives = 3;
 let score = 0;
 let gameActive = false;
+let playerLock = false;
 let scoreSelector = document.querySelector('.score');
 let livesSelector = document.querySelector('.lives');
 let difficultySelector = document.querySelector('.current-difficulty');
@@ -64,6 +65,8 @@ function startGame() {
   // set defaults if person wants to restart game
   lives = 3;
   score = 0;
+  // unlock player
+  playerLock = false;
   setEnemy();
 }
 function resetGame() {
@@ -77,6 +80,8 @@ function resetGame() {
 function gameOver() {
   // clear enemy array, player will be at default position upon death
   allEnemies.length = 0;
+  // lock player in place
+  playerLock = true;
   // record the score and put them in the popup window!
   var modalHTML = `<div class="modal" id="gameover" tabindex="-1" role="dialog" data-backdrop="false">
       <div class="modal-dialog" role="document">
@@ -165,23 +170,26 @@ Player.prototype.render = function() {
 };
 Player.prototype.handleInput = function() {
   // Used the Switch Method as this is more cleaner way of coding instead of having a lot of if/else statements
-  switch (event.keyCode) {
-    // up
-    case 38:
-      this.y -= 85;
-      break;
-    // down
-    case 40:
-      this.y += 85;
-      break;
-    // left
-    case 37:
-      this.x -= 100;
-      break;
-    // right
-    case 39:
-      this.x += 100;
-      break;
+  // if player is locked, he cannot move
+  if (playerLock == false) {
+    switch (event.keyCode) {
+      // up
+      case 38:
+        this.y -= 85;
+        break;
+      // down
+      case 40:
+        this.y += 85;
+        break;
+      // left
+      case 37:
+        this.x -= 100;
+        break;
+      // right
+      case 39:
+        this.x += 100;
+        break;
+    }
   }
 }
 // Now instantiate your objects.
