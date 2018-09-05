@@ -1,3 +1,52 @@
 body {
-    text-align: center;
+    text-align: center!important;
+    background-color: #36a347!important;
 }
+.modal-main-menu {
+  width: 535px;
+  height: 646px;
+  margin: auto auto;
+}
+.scoreboard {
+  width: 515px;
+  margin: auto auto;
+  padding-top: 30px;
+}
+.scorecard {
+  font-size: 24px;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+  width: 225px;
+  display: block;
+  border-radius: 3px;
+}
+.yourscore {
+  font-size: 120px;
+  color: #3d9f70;
+  font-weight: bold;
+  text-align: center;
+}
+.yourscore-label {
+  font-size: 38px;
+}
+.current-difficulty {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+}
+.easy {
+  color: #1b712c;
+}
+.medium {
+  color: #17588c;
+}
+.hard {
+  color: #905f15;
+}
+.expert {
+  color: #9a1b1b;
+}
+/*canvas {
+  display: none;
+} */
