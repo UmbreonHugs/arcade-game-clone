@@ -11,12 +11,23 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content modal-main-menu">
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-success btn-lg" onClick="chooseDifficulty('1')">Easy</button>
-            <button type="button" class="btn btn-primary btn-lg" onClick="chooseDifficulty('2')">Medium</button>
-            <button type="button" class="btn btn-warning btn-lg" onClick="chooseDifficulty('3')">Hard</button>
-            <button type="button" class="btn btn-danger btn-lg" onClick="chooseDifficulty('4')">Expert</button>
+          <img src="images/logo.png" alt="Frogger" />
+          <p>by <a href="http://www.github.com/UmbreonHugs">@UmbreonHugs</a></p>
+          <hr />
+            <ul class="list-unstyled">
+              <li>Select your <strong>difficulty</strong>.</li>
+              <li>Use the <strong>Arrow Keys</strong> to move your character.</li>
+              <li>You earn <strong>200 points</strong> for reaching the goal.</li>
+              <li>You will only have <strong>3 lives</strong>. Good luck!</li>
+            </ul>
+          <hr />
+          <p class="current-difficulty"></p>
+          <hr />
+          <div class="btn-group" role="group" aria-label="Difficulty">
+            <button type="button" class="btn btn-success btn-lg" id="default" onClick="chooseDifficulty('1')" aria-label="Easy">Easy</button>
+            <button type="button" class="btn btn-primary btn-lg" onClick="chooseDifficulty('2')" aria-label="Medium">Medium</button>
+            <button type="button" class="btn btn-warning btn-lg" onClick="chooseDifficulty('3')" aria-label="Hard">Hard</button>
+            <button type="button" class="btn btn-danger btn-lg" onClick="chooseDifficulty('4')" aria-label="Expert">Expert</button>
           </div>
         </div>
         <div class="modal-footer">
@@ -26,18 +37,15 @@
     </div>
   </div>
   <div class="container">
-    <div class="row">
-    <div class="col-4">
-      <span class="seconds-counter">0s</span>
+    <div class="row scoreboard">
+    <div class="col-6">
+      <span class="scorecard"><span class="score">0</span> points</span>
     </div>
-    <div class="col-4">
-      <ul class="stars">
-      </ul>
-    </div>
-    <div class="col-4">
-       <span class="moves"></span> Moves
+    <div class="col-6">
+      <span class="scorecard"><span class="lives">3</span> Lives</span>
     </div>
   </div>
+</div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -47,6 +55,7 @@
     <script type="text/javascript">
     $(document).ready(function () {
         $('#mainmenu').modal('show');
+        document.getElementById("default").click();
       });
     </script>
 </body>
