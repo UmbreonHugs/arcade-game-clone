@@ -4,8 +4,8 @@ This is the Arcade Game Clone project for Udacity, coded in Javascript.
 [Play Game](https://umbreonhugs.github.io/arcade-game-clone/)
 
 # Usage
-1. Clone or Download this repository 
-2. Extract the contents and files
+1. **Clone or Download** this repository 
+2. **Extract** the contents and files anywhere on your PC
 3. Navigate to **index.html** to play the game
 
 # Libraries Used
