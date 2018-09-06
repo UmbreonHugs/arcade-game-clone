@@ -6,7 +6,7 @@ This is the Arcade Game Clone project for Udacity, coded in Javascript.
 # Usage
 1. **Clone or Download** this repository 
 2. **Extract** the contents and files anywhere on your PC
-3. Navigate to **index.html** to play the game
+3. Navigate to **index.html** to play the game on your browser
 
 # Libraries Used
 * Bootstrap 4 (https://getbootstrap.com)
